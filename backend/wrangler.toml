@@ -1,0 +1,11 @@
+name = "backend"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+[vars]
+DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiYTQwNGM0YTUtMThkOC00YzNjLWI5NjYtZDY3ZTA5ZjYyMGFhIiwidGVuYW50X2lkIjoiMzg3ZWU5NDYyNjA4ODU4OTk5YjI3NDliYTJkNzY2MDYyMjI3ZjczNTFjMjY3MTkyYzU0NGVlZDY5ZTEwYWE3NiIsImludGVybmFsX3NlY3JldCI6ImUwNTQ2OTNiLTAxOGMtNDI2Ni1hNDZmLTRmM2VkOTUyMWVlOSJ9.QDt_AGme437MxnMMg8_uX-XktPbrjCdyWuijqSZta_U"
+JWT_SECRET = "mysecret"
+
+[[kv_namespaces]]
+binding = "BLOG_KV"
+id = "679c2e580db2470e8a0b4563b2be0b1c" 
