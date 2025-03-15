@@ -12,6 +12,7 @@
   "dependencies": {
     "@manish98211/z-common": "^1.0.1",
     "@material-tailwind/react": "^2.1.10",
+    "axios": "^1.8.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.3.0"

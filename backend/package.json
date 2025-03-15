@@ -8,6 +8,7 @@
     "@manish98211/z-common": "^1.0.1",
     "@prisma/client": "^6.4.1",
     "@prisma/extension-accelerate": "^1.2.2",
+    "cors": "^2.8.5",
     "hono": "^4.7.2",
     "prisma": "^6.4.1"
   },
