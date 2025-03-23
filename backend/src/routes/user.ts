@@ -36,7 +36,7 @@ userRoutes.post('/signup', async (c) => {
         }
       })
       const jwt = await sign({ id: user.id }, c.env.JWT_SECRET)
-      return c.json({ jwt })
+      return c.json({ jwt,username: user.name })
     } catch (e) {
       return c.text('Email or user already exits!!')
     }
@@ -67,7 +67,7 @@ userRoutes.post('/signup', async (c) => {
       return c.text('user not found')
     }
     const jwt = await sign({ id: user.id }, c.env.JWT_SECRET)
-    return c.json({ jwt })
+    return c.json({ jwt,username: user.name })
   })
 
   export default userRoutes;

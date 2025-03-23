@@ -15,10 +15,19 @@ const blogRoutes = new Hono<{
 }>()
 
 blogRoutes.use('/api/v1/blog/*', async (c, next) => {
-  // Skip middleware for bulk route
-  if (c.req.path.endsWith('/bulk')) {
-    return next();
+  const auth = c.req.header('Authorization')
+  if (!auth) {
+    return c.json({ error: 'Unauthorized' }, 401);
   }
+  const token = auth.split(' ')[1];
+  const payload = await verify(token, c.env.JWT_SECRET);
+  if (!payload) {
+    return c.json({ error: 'Unauthorized' }, 401);
+  }
+  c.set('userId', payload.id as string);
+  await next();
+})
+blogRoutes.use('/', async (c, next) => {
   const auth = c.req.header('Authorization')
   if (!auth) {
     return c.json({ error: 'Unauthorized' }, 401);
@@ -34,6 +43,9 @@ blogRoutes.use('/api/v1/blog/*', async (c, next) => {
 
 blogRoutes.post('/', async (c) => {
   const userId = c.get('userId');
+  if (!userId) {
+    return c.json({ message: "User ID not found in context" }, 401);
+  }
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate());
@@ -90,7 +102,19 @@ blogRoutes.get('/bulk', async (c) => {
     datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate());
   try {
-    const posts = await prisma.post.findMany();
+    const posts = await prisma.post.findMany({
+      select:{
+        id:true,
+        content:true,
+        title:true,
+        createdAt:true,
+        author:{
+          select:{
+            name:true,
+          }
+        }
+            }
+    });
     return c.json(posts)
   } catch (e) {
     console.error(e);
@@ -107,7 +131,18 @@ blogRoutes.get('/:id', async (c) => {
     const post = await prisma.post.findUnique({
       where: {
         id
-      }
+      },
+      select:{
+        id:true,
+        content:true,
+        title:true,
+        createdAt:true,
+        author:{
+          select:{
+            name:true,
+          }
+        }
+            }
     })
     // console.log(id);
     return c.json(post)

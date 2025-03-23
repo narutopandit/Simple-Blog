@@ -14,6 +14,7 @@ interface reqType {
        })
     //    console.log(response.data)
        localStorage.setItem('token',response.data.jwt);
+       localStorage.setItem('username',response.data.username);
        navigate('/blog');
         }catch(e){
           alert('Failed to Sign Up')
