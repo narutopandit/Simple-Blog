@@ -12,8 +12,7 @@ const AppBar = ({ name, Button = true }: buttonType) => {
   const [isOpen, setIsOpen] = useState(false);
   const dashboardRef = useRef<HTMLDivElement>(null);
 
-  const toggleDashboard = (event: any) => {
-    event.stopPropagation();
+  const toggleDashboard = () => {
     setIsOpen(!isOpen);
   }
 
