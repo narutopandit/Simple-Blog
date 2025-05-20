@@ -36,6 +36,9 @@ const AppBar = ({ name, Button = true }: buttonType) => {
   function onClick() {
     navigate('/create');
   }
+  function onClick2() {
+    navigate('/drafts');
+  }
 
   function LogOut() {
     localStorage.removeItem('token');
@@ -48,7 +51,8 @@ const AppBar = ({ name, Button = true }: buttonType) => {
         <Link to={'/blog'}>Simple-Blog</Link>
       </div>
       <div className='flex items-center justify-center'>
-        {(Button) ? <CreateButton onClick={onClick} /> : null}
+      {(Button) ? <CreateButton name={"Drafts"} onClick={onClick2} /> : null}
+        {(Button) ? <CreateButton name={"Create"} onClick={onClick} /> : null}
         <div onClick={toggleDashboard}
           className="cursor-pointer p-4" ref={dashboardRef} >
           <Avitar names={name} size='large' />

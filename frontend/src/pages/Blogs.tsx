@@ -12,6 +12,7 @@ interface Blog {
   createdAt: string;
   title: string;
   content: string;
+  draft: boolean;
 }
 const Blogs = () => {
   const {loadings, blogs} = useBlogs()
@@ -21,7 +22,7 @@ const Blogs = () => {
     <div>
       <AppBar name={localStorage.getItem('username') || ""}/>
       <div className='flex flex-col items-center max-w-full max-h-full'>
-      {Array.isArray(blogs) ? blogs.map((blog:Blog)=>{
+      {Array.isArray(blogs) ? blogs.filter((blog:any)=>blog.draft==false).map((blog:Blog)=>{
         return <Link to={`/blog/${blog.id}`}><BlogCard key={blog.id} varient='half' name={blog.author.name} date={blog.createdAt.split("T")[0]} title={blog.title} content={blog.content} id={blog.id}/></Link>
       }) : <div>Blogs data is not in the expected format.</div>}
       </div>

@@ -17,3 +17,4 @@ export const useBlogs =()=>{
     },[])
     return {loadings,blogs}
 }
+

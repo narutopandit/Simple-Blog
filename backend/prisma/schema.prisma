@@ -25,6 +25,7 @@ model Post {
   title     String
   content   String
   published Boolean  @default(false)
+  draft     Boolean  @default(true)
   createdAt DateTime @default(now()) @db.Date
   author    User     @relation(fields: [authorId], references: [id])
   authorId  String

@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-import { sign, verify } from 'hono/jwt'
+
 import userRoutes from './routes/user'
 import blogRoutes from './routes/blog'
 import { cors } from 'hono/cors'

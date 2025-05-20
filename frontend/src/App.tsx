@@ -5,6 +5,7 @@ import Signin from './pages/Signin'
 import Blog from './pages/Blog'
 import Blogs from './pages/Blogs'
 import CreateBlog from './pages/CreateBlog'
+import Drafts from './pages/Drafts'
 function App() {
   return (
     <>
@@ -14,8 +15,10 @@ function App() {
           <Route path='/' element={<Signup/>}/>
           <Route path='/signin' element={<Signin/>}/>
           <Route path='/blog' element={<Blogs/>}/>
+          <Route path='/drafts' element={<Drafts/>}/>
           <Route path='/blog/:id' element={<Blog/>}/>
           <Route path='/create' element={<CreateBlog/>}/>
+
         </Routes>
       </BrowserRouter>
     </>

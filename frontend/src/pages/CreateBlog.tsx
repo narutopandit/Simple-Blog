@@ -9,7 +9,7 @@ const CreateBlog = () => {
             <AppBar Button={false} name={localStorage.getItem('username')||""}/>
         </div>
         <div className='flex justify-center my-9'>
-           <CreateCard text='Create Post'/> 
+           <CreateCard/> 
         </div>
     </div>
   )
