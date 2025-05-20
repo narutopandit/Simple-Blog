@@ -1,6 +1,4 @@
-import React from 'react'
-import AppBar from './AppBar'
-import { Link } from 'react-router-dom'
+
 
 interface BlogType {
   name: string,
@@ -21,7 +19,7 @@ const colors = [
   "bg-teal-500",
 ];
 const getRandomColor = () => colors[Math.floor(Math.random() * colors.length)];
-const BlogCard = ({ name, date, title, content, id, varient='full' }: BlogType) => {
+const BlogCard = ({ name, date, title, content, varient='full' }: BlogType) => {
   return (
       <div className='max-w-xl mt-5 max-h-fit border-b-blue-gray-50 border-b cursor-pointer'>
         <div className='flex p-4'>

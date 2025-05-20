@@ -1,4 +1,4 @@
-import { Button } from "@material-tailwind/react";
+
 
 interface buttonType {
   title: string;
@@ -7,8 +7,8 @@ interface buttonType {
 
 export function SignButton({ title ,onClick}: buttonType) {
   return (
-    <Button onClick={onClick} className="bg-gray-900 w-full max-w-sm min-w-[200px] mb-2">
+    <button onClick={onClick} className="bg-gray-900 w-full max-w-sm min-w-[200px] mb-2">
       {title}
-    </Button>
+    </button>
   );
 }

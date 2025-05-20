@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { BACKEND_URL } from '../config';
 import axios from 'axios';
 

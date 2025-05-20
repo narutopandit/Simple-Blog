@@ -1,4 +1,3 @@
-import React from 'react'
 
 
 const CreateButton = ({name,onClick}:{name:String,onClick:(e:any)=>void}) => {

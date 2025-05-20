@@ -1,4 +1,4 @@
-import { Link, Navigate, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { SignButton } from "../components/ButtonSign"
 import InputBox from "../components/InputBox"
 import Quotes from "../components/Quotes"
