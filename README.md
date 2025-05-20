@@ -14,7 +14,7 @@ A full-stack blog application built using the MERN stack (MongoDB, Express.js, R
 
 - **Frontend:** React.js, TypeScript, Tailwind CSS
 - **Backend:** Node.js, Express.js
-- **Database:** MongoDB (Mongoose ORM)
+- **Database:** PSQL (Prisma ORM)
 - **Authentication:** JSON Web Token (JWT)
 
 ## Installation
@@ -36,20 +36,20 @@ A full-stack blog application built using the MERN stack (MongoDB, Express.js, R
 3. Create a `.env` file in the `server` directory and add the following environment variables:
    ```env
    PORT=5000
-   MONGO_URI=your_mongodb_connection_string
+   PRISMA_URI=your_mongodb_connection_string
    JWT_SECRET=your_secret_key
    ```
 
 4. Start the backend server:
    ```sh
-   cd server
-   npm start
+   cd backend
+   npm run dev
    ```
 
 5. Start the frontend development server:
    ```sh
-   cd client
-   npm start
+   cd frontend
+   npm run dev
    ```
 
 6. Open your browser and go to `http://localhost:3000`.
@@ -57,8 +57,8 @@ A full-stack blog application built using the MERN stack (MongoDB, Express.js, R
 ## API Endpoints
 
 ### Authentication
-- `POST /api/auth/register` - Register a new user
-- `POST /api/auth/login` - Login user
+- `POST /api/auth/signup` - Register a new user
+- `POST /api/auth/signin` - Login user
 
 ### Blog Posts
 - `GET /api/posts` - Fetch all blog posts
@@ -70,8 +70,8 @@ A full-stack blog application built using the MERN stack (MongoDB, Express.js, R
 ## Folder Structure
 ```
 /simple-blog
-  ├── client        # React frontend
-  ├── server        # Express backend
+  ├── frontend        # React frontend
+  ├── backend        # Express backend
   ├── .gitignore    # Ignored files
   ├── README.md     # Project documentation
 ```
